@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="paragrafo1" style="font-size: 100px;">Questo è il paragrafo 1.</p>
+    <button onclick="cambiaColore('paragrafo1')" style="font-size: 100px;">Cambia colore</button>
+
+    <p id="paragrafo2" style="font-size: 100px;">Questo è il paragrafo 2.</p>
+    <button onclick="rendiGrassetto('paragrafo2')" style="font-size: 100px;">Cambia testo</button>
+
+    <p id="paragrafo3" style="font-size: 100px;">Questo è il paragrafo 3.</p>
+    <button onclick="visibilita('paragrafo3')" style="font-size: 100px;">Cambia visibilità</button>
+
+    <script>
+        function cambiaColore() {
+            var paragrafi = document.getElementsByTagName("p");
+
+            for (var i = 0; i < paragrafi.length; i++) {
+                var coloreCasuale = generaColoreCasuale();
+                paragrafi[i].style.color = coloreCasuale;
+            }
+        }
+        function generaColoreCasuale() {
+            var colore = '#';
+
+            for (var i = 0; i < 6; i++) {
+                colore += Math.floor(Math.random() * 16).toString(16);
+            }
+            return colore;
+        }
+
+        function rendiGrassetto() {
+            var paragrafi = document.getElementsByTagName("p");
+            for (var i = 0; i < paragrafi.length; i++) {
+                if(paragrafi[i].style.fontWeight === "bold"){
+                    paragrafi[i].style.fontWeight = "normal";
+                }
+                else{
+                    paragrafi[i].style.fontWeight = "bold";
+                }
+            }
+        }
+
+        function visibilita() {
+            var paragrafi = document.getElementsByTagName("p");
+            for(var i=0; i<paragrafi.length; i++){
+                if (paragrafi[i].style.display === "none") {
+                    paragrafi[i].style.display = "block";
+                } 
+                else {
+                    paragrafi[i].style.display = "none";
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
